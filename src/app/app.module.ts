@@ -11,6 +11,8 @@ import { LayoutComponent } from './layout/layout.component';
 import { CurrentTrainingComponent } from './layout/current-training/current-training.component';
 import { NewTrainingComponent } from './layout/new-training/new-training.component';
 import { PastTrainingComponent } from './layout/past-training/past-training.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import {AppRoutingModule} from "./app-routing.module";
 
 
 @NgModule({
@@ -21,12 +23,14 @@ import { PastTrainingComponent } from './layout/past-training/past-training.comp
     LayoutComponent,
     CurrentTrainingComponent,
     NewTrainingComponent,
-    PastTrainingComponent
+    PastTrainingComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
