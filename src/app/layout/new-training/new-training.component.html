@@ -7,17 +7,8 @@
     <mat-card-content fxLayoutAlign="center">
       <mat-form-field>
         <mat-select placeholder="Exersizes">
-          <mat-option value="pull-ups">
-            Pull-ups
-          </mat-option>
-          <mat-option value="push-ups">
-            Push-ups
-          </mat-option>
-          <mat-option value="crunches">
-            Crunches
-          </mat-option>
-          <mat-option value="planks">
-            Planks
+          <mat-option *ngFor="let exersize of exersizes" [value]="exersize.id">
+            {{ exersize.name }}
           </mat-option>
         </mat-select>
       </mat-form-field>
