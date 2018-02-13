@@ -1,5 +1,3 @@
-a {
-  text-decoration: none;
-  font-style: italic;
-  color: #ff4081;
+mat-form-field {
+  width: 300px;
 }

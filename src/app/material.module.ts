@@ -1,45 +1,56 @@
+import { NgModule } from '@angular/core';
 import {
-  MatButtonModule, MatCardModule, MatCheckboxModule, MatDatepickerModule, MatDialogModule, MatFormFieldModule,
+  MatButtonModule,
   MatIconModule,
-  MatInputModule, MatListModule, MatNativeDateModule, MatProgressSpinnerModule, MatSelectModule, MatSidenavModule,
-  MatTabsModule, MatToolbarModule
+  MatFormFieldModule,
+  MatInputModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatCheckboxModule,
+  MatSidenavModule,
+  MatToolbarModule,
+  MatListModule,
+  MatTabsModule,
+  MatCardModule,
+  MatSelectModule,
+  MatProgressSpinnerModule,
+  MatDialogModule
 } from '@angular/material';
-import {NgModule} from "@angular/core";
 
 @NgModule({
-    imports: [
-      MatButtonModule,
-      MatDatepickerModule,
-      MatFormFieldModule,
-      MatIconModule,
-      MatInputModule,
-      MatCardModule,
-      MatNativeDateModule,
-      MatSidenavModule,
-      MatListModule,
-      MatToolbarModule,
-      MatSelectModule,
-      MatDialogModule,
-      MatTabsModule,
-      MatProgressSpinnerModule,
-      MatCheckboxModule
-    ],
-    exports: [
-      MatButtonModule,
-      MatFormFieldModule,
-      MatIconModule,
-      MatDatepickerModule,
-      MatCardModule,
-      MatListModule,
-      MatTabsModule,
-      MatCheckboxModule,
-      MatSelectModule,
-      MatDialogModule,
-      MatSidenavModule,
-      MatProgressSpinnerModule,
-      MatToolbarModule,
-      MatNativeDateModule,
-      MatInputModule
-    ],
+  imports: [
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatTabsModule,
+    MatCardModule,
+    MatSelectModule,
+    MatProgressSpinnerModule,
+    MatDialogModule
+  ],
+  exports: [
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatTabsModule,
+    MatCardModule,
+    MatSelectModule,
+    MatProgressSpinnerModule,
+    MatDialogModule
+  ]
 })
-export class MaterialModule { }
+export class MaterialModule {}

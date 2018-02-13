@@ -1,25 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MaterialModule} from "./material.module";
+import { MaterialModule } from './material.module';
 import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
-import { LayoutComponent } from './layout/layout.component';
-import { CurrentTrainingComponent } from './layout/current-training/current-training.component';
-import { NewTrainingComponent } from './layout/new-training/new-training.component';
-import { PastTrainingComponent } from './layout/past-training/past-training.component';
+import { TrainingComponent } from './training/training.component';
+import { CurrentTrainingComponent } from './training/current-training/current-training.component';
+import { NewTrainingComponent } from './training/new-training/new-training.component';
+import { PastTrainingsComponent } from './training/past-trainings/past-trainings.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import {AppRoutingModule} from "./app-routing.module";
-import {FlexLayoutModule} from "@angular/flex-layout";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
-import {StopTrainingComponent} from "./layout/current-training/stop-training.component";
-import {AuthService} from "./core/services/auth.service";
-import {TrainingService} from "./core/services/training.service";
+import { StopTrainingComponent } from './training/current-training/stop-training.component';
+import { AuthService } from './auth/auth.service';
+import { TrainingService } from './training/training.service';
 
 
 @NgModule({
@@ -27,10 +26,10 @@ import {TrainingService} from "./core/services/training.service";
     AppComponent,
     SignupComponent,
     LoginComponent,
-    LayoutComponent,
+    TrainingComponent,
     CurrentTrainingComponent,
     NewTrainingComponent,
-    PastTrainingComponent,
+    PastTrainingsComponent,
     WelcomeComponent,
     HeaderComponent,
     SidenavListComponent,
@@ -38,12 +37,12 @@ import {TrainingService} from "./core/services/training.service";
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule,
+    AppRoutingModule,
     FlexLayoutModule,
-    AppRoutingModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService, TrainingService],
   bootstrap: [AppComponent],

@@ -1,8 +1,9 @@
-import {Injectable} from "@angular/core";
-import {User} from "../models/user.model";
-import {AuthData} from "../models/auth-data.model";
-import {Subject} from "rxjs/Subject";
-import {Router} from "@angular/router";
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { Subject } from 'rxjs/Subject';
+
+import { User } from './user.model';
+import { AuthData } from './auth-data.model';
 
 @Injectable()
 export class AuthService {
@@ -16,7 +17,7 @@ export class AuthService {
       email: authData.email,
       userId: Math.round(Math.random() * 10000).toString()
     };
-    this.successfulAuth();
+    this.authSuccessfully();
   }
 
   login(authData: AuthData) {
@@ -24,7 +25,7 @@ export class AuthService {
       email: authData.email,
       userId: Math.round(Math.random() * 10000).toString()
     };
-    this.successfulAuth();
+    this.authSuccessfully();
   }
 
   logout() {
@@ -41,7 +42,7 @@ export class AuthService {
     return this.user != null;
   }
 
-  successfulAuth() {
+  private authSuccessfully() {
     this.authChange.next(true);
     this.router.navigate(['/training']);
   }
