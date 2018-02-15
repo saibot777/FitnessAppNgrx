@@ -15,7 +15,7 @@ import {
   MatSelectModule,
   MatProgressSpinnerModule,
   MatDialogModule,
-  MatTableModule, MatSortModule, MatPaginatorModule
+  MatTableModule, MatSortModule, MatPaginatorModule, MatSnackBarModule
 } from '@angular/material';
 
 @NgModule({
@@ -36,6 +36,7 @@ import {
     MatCardModule,
     MatSelectModule,
     MatProgressSpinnerModule,
+    MatSnackBarModule,
     MatDialogModule,
     MatTableModule
   ],
@@ -50,6 +51,7 @@ import {
     MatSortModule,
     MatSidenavModule,
     MatPaginatorModule,
+    MatSnackBarModule,
     MatToolbarModule,
     MatListModule,
     MatTabsModule,
