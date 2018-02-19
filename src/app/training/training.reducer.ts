@@ -1,13 +1,14 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { Action, createFeatureSelector, createSelector } from '@ngrx/store';
+
 import {
-  AppActions,
+  TrainingActions,
   SET_AVAILABLE_TRAININGS,
   SET_FINISHED_TRAININGS,
   START_TRAINING,
   STOP_TRAINING
-} from "../../store/app.actions";
-import {Exercise} from "../exercise.model";
-import * as fromRoot from '../../main.reducer';
+} from './training.actions';
+import { Exercise } from './exercise.model';
+import * as fromRoot from '../app.reducer';
 
 export interface TrainingState {
   availableExercises: Exercise[];
@@ -25,7 +26,7 @@ const initialState: TrainingState = {
   activeTraining: null
 };
 
-export function trainingReducer(state = initialState, action: AppActions) {
+export function trainingReducer(state = initialState, action: TrainingActions) {
   switch (action.type) {
     case SET_AVAILABLE_TRAININGS:
       return {
@@ -47,8 +48,9 @@ export function trainingReducer(state = initialState, action: AppActions) {
         ...state,
         activeTraining: null
       };
-    default:
+    default: {
       return state;
+    }
   }
 }
 
