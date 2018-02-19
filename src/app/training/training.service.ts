@@ -3,7 +3,7 @@ import { AngularFirestore } from 'angularfire2/firestore';
 import { Subject } from 'rxjs/Subject';
 import { Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
-import * as fromApp from '../main.reducer';
+import * as fromApp from './store/training.reducer';
 import * as actions from '../store/app.actions';
 
 import { Exercise } from './exercise.model';
@@ -37,6 +37,7 @@ export class TrainingService {
       })
       .subscribe((exercises: Exercise[]) => {
         this.store.dispatch(new actions.StopLoading());
+        this.store.dispatch(new actions.SetAvailableTrainings(exercises));
         this.availableExercises = exercises;
         this.exercisesChanged.next([...this.availableExercises]);
       }, error => {
@@ -47,11 +48,7 @@ export class TrainingService {
   }
 
   startExercise(selectedId: string) {
-    // this.db.doc('availableExercises/' + selectedId).update({lastSelected: new Date()});
-    this.runningExercise = this.availableExercises.find(
-      ex => ex.id === selectedId
-    );
-    this.exerciseChanged.next({ ...this.runningExercise });
+    this.store.dispatch(new actions.StartTraining(selectedId));
   }
 
   completeExercise() {
@@ -60,8 +57,7 @@ export class TrainingService {
       date: new Date(),
       state: 'completed'
     });
-    this.runningExercise = null;
-    this.exerciseChanged.next(null);
+    this.store.dispatch(new actions.StopTraining());
   }
 
   cancelExercise(progress: number) {
@@ -72,8 +68,7 @@ export class TrainingService {
       date: new Date(),
       state: 'cancelled'
     });
-    this.runningExercise = null;
-    this.exerciseChanged.next(null);
+    this.store.dispatch(new actions.StopTraining());
   }
 
   getRunningExercise() {
@@ -85,7 +80,7 @@ export class TrainingService {
       .collection('finishedExercises')
       .valueChanges()
       .subscribe((exercises: Exercise[]) => {
-        this.finishedExercisesChanged.next(exercises);
+        this.store.dispatch(new actions.SetFinishedTrainings(exercises));
       }));
   }
 
